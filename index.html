@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+
+    <!-- Sweetalert2 -->
+    <link href="vendor/sweetalert/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Confetti -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Custom css -->
+    <style>
+        body {
+            background-image: url('img/bg.jpg');
+            background-position: center;
+            /* background-repeat: no-repeat; */
+            background-size: cover;
+        }
+        body:before {
+            content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                /* background-image: linear-gradient(to bottom right,#002f4b,#dc4225); */
+                background-color: black;
+                opacity: .3; 
+        }
+        body.swal2-shown > [aria-hidden="true"] {
+            transition: 0.1s filter;
+            filter: blur(10px);
+        }
+        .confetti{
+            margin: 0 auto;
+            padding: 0 auto;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="click-me position-fixed" style="z-index: 2;"><button class="btn btn-primary">Click Me!</button></div> -->
+    <canvas class="confetti position-absolute w-100 click-me" id="canvas" style="z-index: 1;"></canvas>
+    <section class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-4" data-aos="flip-left">
+                <div class="card">
+                    <img src="img/COLOR_POP.jpg" class="card-img-top" alt="...">
+                    <div class="card-body p-3">
+                      <h3 class="card-text">Happy Birthday,<br>Widyadhara Tri Anggana</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <!-- Sweetalert2 -->
+    <script src="vendor/sweetalert/dist/sweetalert2.min.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Confetti -->
+    <script src="vendor/confetti/js/confetti.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        $(document).ready(function() {
+            let count = 0;
+            AOS.init();
+
+            $('.click-me').on('click', () => {
+                if(count < 1) {
+                    count++;
+                    Swal.fire({
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInLeft'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutLeft'
+                        },
+                        confirmButtonText: 'Next',
+                        html: `
+                            <div class="text-left">
+                                <h4>Happy Birthday to that special person who brings so much happiness to my heart.</h4>
+                            </div>`
+                    }).then(() => {
+                        Swal.fire({
+                            showClass: {
+                                popup: 'animate__animated animate__fadeInRight'
+                            },
+                            hideClass: {
+                                popup: 'animate__animated animate__fadeOutRight'
+                            },
+                            confirmButtonText: 'Next',
+                            html: `
+                            <div class="text-left">
+                                <h4>I am grateful for every moment we spend together, and I hope our happiness never ends.</h4>
+                            </div>
+                            `
+                        }).then(() => {
+                            Swal.fire({
+                                showClass: {
+                                    popup: 'animate__animated animate__fadeInDown'
+                                },
+                                hideClass: {
+                                    popup: 'animate__animated animate__fadeOutDown'
+                                },
+                                html: `
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="pr-2">
+                                        <img src="img/love.jpeg" class="rounded" height="250px">
+                                    </div>
+                                    <div class="pl-2 text-left">
+                                        <p><h4>Created by Love, Budianto</h4></p>
+                                    </div>
+                                </div>`
+                            });
+                        });
+                    });
+                }
+                });
+        });
+    </script>
+  </body>
+</html>
